@@ -34,7 +34,7 @@ if prompt := st.chat_input('what is up (experimental)?'):
     with st.chat_message('user'):
         st.markdown(prompt)
     context = template.format(instruction=prompt, response='',)
-    answer = gpt2_lm.generate(prompt, max_length=256)
+    answer = gpt2_it.generate(prompt, max_length=256)
     def stream_data():
         for word in answer.split(' '):
             yield word + ' '
